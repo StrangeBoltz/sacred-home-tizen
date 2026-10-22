@@ -1,0 +1,12 @@
+{
+  "name": "sacred-home-tizen",
+  "version": "0.1.0",
+  "description": "Sacred-geometry home screen and ambient mode for Samsung Tizen TVs (TizenBrew app module). Tuned for 2017-2019 sets.",
+  "appName": "Sacred Home",
+  "packageType": "app",
+  "appPath": "app/index.html",
+  "keys": ["ColorF0Red", "ColorF1Green", "ColorF2Yellow", "ColorF3Blue"],
+  "keywords": ["tizenbrew", "tizenbrew-module", "tizen", "samsung", "launcher", "ambient"],
+  "license": "MIT",
+  "files": ["app/"]
+}

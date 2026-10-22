@@ -1,0 +1,102 @@
+/* Sacred Home. Written for Chromium 47: no CSS variables, no grid, no flex gap.
+ * Palette: night #06050b, gold #d9b46c, rose #e3a08c, aqua #8fe0d2, ivory #f3ead8 */
+html, body {
+  margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;
+  background: #06050b; color: #f3ead8;
+  font-family: 'Josefin Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 300;
+}
+#stage {
+  position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden;
+  -webkit-transform-origin: 0 0; transform-origin: 0 0;
+  background: radial-gradient(ellipse at 50% 38%, #1b1531 0%, #0d0a18 45%, #06050b 80%);
+}
+
+/* ---------- line work ---------- */
+.geo { fill: none; stroke: #d9b46c; stroke-width: 1; stroke-opacity: 0.55; }
+.geo.strong { stroke-opacity: 0.9; stroke-width: 1.3; }
+.geo.faint { stroke-opacity: 0.22; }
+.dot { fill: #e3a08c; opacity: 0.85; }
+.draw .geo[style] { -webkit-animation: draw 2.4s cubic-bezier(.6,0,.2,1) forwards; animation: draw 2.4s cubic-bezier(.6,0,.2,1) forwards; }
+@-webkit-keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+/* ---------- mandala ---------- */
+#mandala {
+  position: absolute; left: 610px; top: 40px; width: 700px; height: 700px;
+  -webkit-transition: -webkit-transform 3s cubic-bezier(.5,0,.2,1); transition: transform 3s cubic-bezier(.5,0,.2,1);
+}
+.layer { position: absolute; left: 0; top: 0; width: 700px; height: 700px; will-change: transform; }
+.layer svg { display: block; }
+#l-ring     { -webkit-animation: spin 320s linear infinite; animation: spin 320s linear infinite; }
+#l-star     { -webkit-animation: spin 520s linear infinite reverse; animation: spin 520s linear infinite reverse; }
+#l-star .geo { stroke: #e3a08c; stroke-opacity: 0.35; }
+#l-metatron { -webkit-animation: breathe 9s ease-in-out infinite; animation: breathe 9s ease-in-out infinite; }
+#l-flower   { -webkit-animation: spin 240s linear infinite reverse; animation: spin 240s linear infinite reverse; }
+@-webkit-keyframes spin { to { -webkit-transform: rotate(360deg); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@-webkit-keyframes breathe { 0%,100% { opacity: .45; } 50% { opacity: 1; } }
+@keyframes breathe { 0%,100% { opacity: .45; } 50% { opacity: 1; } }
+
+#core {
+  position: absolute; left: 160px; top: 160px; width: 380px; height: 380px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(6,5,11,.94) 0%, rgba(6,5,11,.82) 50%, rgba(6,5,11,0) 70%);
+}
+#clock { position: absolute; left: 0; top: 268px; width: 700px; text-align: center; }
+#time {
+  font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; font-size: 128px; line-height: 1;
+  letter-spacing: 2px; color: #f3ead8; text-shadow: 0 0 30px rgba(217,180,108,.35);
+}
+#date { margin-top: 10px; font-size: 20px; letter-spacing: 8px; text-transform: uppercase; color: #d9b46c; }
+
+#greeting {
+  position: absolute; left: 0; top: 44px; width: 560px; padding-left: 90px;
+  font-family: 'Cormorant Garamond', Georgia, serif; font-size: 40px; font-style: italic; color: #e8dcc2;
+  -webkit-transition: opacity 1.5s; transition: opacity 1.5s;
+}
+#greeting small { display: block; margin-top: 8px; font-family: 'Josefin Sans', sans-serif; font-style: normal;
+  font-size: 16px; letter-spacing: 6px; color: #8fe0d2; text-transform: uppercase; }
+
+/* ---------- rows ---------- */
+#rows {
+  position: absolute; left: 0; top: 760px; width: 1920px; text-align: center;
+  -webkit-transition: opacity 1.2s, -webkit-transform 1.2s; transition: opacity 1.2s, transform 1.2s;
+}
+.row { white-space: nowrap; font-size: 0; }
+.tile {
+  display: inline-block; position: relative; vertical-align: top; width: 190px; height: 196px; margin: 0 14px;
+  font-size: 16px; text-align: center;
+  -webkit-transition: -webkit-transform .35s cubic-bezier(.3,1.6,.5,1); transition: transform .35s cubic-bezier(.3,1.6,.5,1);
+}
+.tile .frame { position: absolute; left: 0; top: 0; }
+.tile .frame .geo { stroke-opacity: .35; }
+.tile .sig { position: absolute; left: 35px; top: 18px; width: 120px; height: 120px; will-change: transform;
+  -webkit-transition: opacity .35s; transition: opacity .35s; opacity: .7; }
+.tile .label { position: absolute; left: 0; bottom: 16px; width: 100%; font-size: 17px; letter-spacing: 3px;
+  text-transform: uppercase; color: #cbbd9f; }
+.tile.focus { -webkit-transform: translateY(-10px) scale(1.08); transform: translateY(-10px) scale(1.08); }
+.tile.focus .frame .geo { stroke: #8fe0d2; stroke-opacity: 1; }
+.tile.focus .sig { opacity: 1; -webkit-animation: spin 18s linear infinite; animation: spin 18s linear infinite; }
+.tile.focus .label { color: #f3ead8; }
+.tile .glow { position: absolute; left: -30px; top: -30px; width: 250px; height: 256px; opacity: 0;
+  background: radial-gradient(circle, rgba(143,224,210,.22) 0%, rgba(143,224,210,0) 65%);
+  -webkit-transition: opacity .35s; transition: opacity .35s; }
+.tile.focus .glow { opacity: 1; }
+
+.row.small { margin-top: 6px; }
+.row.small .tile { width: 150px; height: 56px; margin: 0 10px; }
+.row.small .tile .label { bottom: 18px; font-size: 14px; }
+.row.small .tile .sig { display: none; }
+
+.flourish { height: 22px; margin: 4px auto 0; width: 900px; }
+
+/* ---------- ambient ---------- */
+.ambient #rows { opacity: 0; -webkit-transform: translateY(80px); transform: translateY(80px); }
+.ambient #greeting { opacity: 0; }
+.ambient #mandala { -webkit-transform: translate(0, 150px) scale(1.25); transform: translate(0, 150px) scale(1.25); }
+#hint { position: absolute; left: 0; bottom: 34px; width: 1920px; text-align: center; font-size: 14px;
+  letter-spacing: 6px; color: #6f6450; opacity: 0; -webkit-transition: opacity 2s; transition: opacity 2s; }
+.ambient #hint { opacity: .8; }
+
+#toast { position: absolute; left: 760px; top: 40px; width: 400px; text-align: center; font-size: 18px; letter-spacing: 3px;
+  color: #8fe0d2; opacity: 0; -webkit-transition: opacity .4s; transition: opacity .4s; }
+#toast.show { opacity: 1; }
