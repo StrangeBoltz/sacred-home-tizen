@@ -20,7 +20,7 @@ and every geometry layer rotates as one composited element. Tested on a 2017 UN5
    set Developer Mode's Host PC IP to `127.0.0.1` afterwards.
 2. In TizenBrew, open the Module Manager, add a **GitHub** module:
    ```
-   gh/StrangeBoltz/sacred-home-tizen
+   gh/StrangeBoltz/sacred-home-tizen@main
    ```
 3. Optional: set it to **autolaunch** so it opens whenever TizenBrew starts.
 
