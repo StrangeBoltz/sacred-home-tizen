@@ -12,7 +12,7 @@ tick-marked rings that draw themselves in, then rotate and breathe slowly around
   slowly to avoid burn-in. Any key wakes it.
 
 Built for the 2017 Tizen 3.0 web engine (Chromium 47): plain ES5, no CSS variables, grid or flex `gap`,
-and every geometry layer rotates as one composited element. Tested on a 2017 UN55MU800D.
+and every geometry layer rotates as one composited element. Developed for a 2017 UN55MU800D.
 
 ## Install
 
