@@ -43,5 +43,9 @@ From inside the TV it uses the TV's own local API:
 | Arrows / OK | move, open |
 | Back or Yellow | ambient mode |
 | Blue | reload |
+| Red (or the TizenBrew tile) | back to TizenBrew's module list |
+
+If a module is set to autolaunch and you can't get back to TizenBrew's home, turn Developer Mode
+off and restart the TV: TizenBrew only autolaunches in debug mode, so it opens on its module list.
 
 MIT licensed.

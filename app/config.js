@@ -18,6 +18,7 @@ window.SACRED_CONFIG = {
     { name: 'HDMI 3',   key: 'KEY_HDMI3' },
     { name: 'Sources',  key: 'KEY_SOURCE' },
     { name: 'Settings', key: 'KEY_MENU' },
-    { name: 'Ambient',  action: 'ambient' }
+    { name: 'Ambient',  action: 'ambient' },
+    { name: 'TizenBrew', action: 'tizenbrew' }   // back to TizenBrew's module list (also: Red)
   ]
 };

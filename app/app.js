@@ -99,8 +99,15 @@
     ws.onclose = ws.onerror = function () { ws = null; wsReady = false; };
   }
 
+  /* TizenBrew opened us by navigating its own page here, so its module list is one step back. */
+  function backToTizenBrew() {
+    toast('◇ TizenBrew ◇');
+    if (window.history.length > 1) window.history.back();
+  }
+
   function activate(item) {
     if (item.action === 'ambient') return setAmbient(true);
+    if (item.action === 'tizenbrew') return backToTizenBrew();
     if (item.id) return launchApp(item.id, item.name);
     if (item.key) { toast('◇ ' + item.name + ' ◇'); sendKey(item.key); }
   }
@@ -159,6 +166,7 @@
       case KEYS.ENTER: activate(row[focus.col].item); break;
       case KEYS.YELLOW: case KEYS.BACK: case KEYS.ESC: setAmbient(true); break;
       case KEYS.BLUE: location.reload(); break;
+      case KEYS.RED: backToTizenBrew(); break;
       default: return;
     }
     e.preventDefault();
